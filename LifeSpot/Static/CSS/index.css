@@ -1,0 +1,110 @@
+﻿header, footer, aside, body, .navbar, .video-container {
+    font-family: "Helvetica 65 Medium", sans-serif;
+}
+header, footer, body, .video-container {
+    background-color: bisque;
+}
+body {
+    padding-left: 11%;
+}
+header {
+    color: black;
+    padding-left: 1%;
+    padding-top: 1.2%;
+}
+footer {
+    position: relative;
+    bottom: 0;
+    padding-left: 1%;
+    font-size: smaller;
+    color: dimgrey;
+    line-height: 66%;
+}
+aside {
+    height: 100%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
+    width: 10%;
+    position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
+    z-index: 1; /* Сайд-бар будет поверх остальных элементов */
+    top: 0; /* Сайдбар будет в самой верхней части страницы */
+    left: 0;
+    background-color: #111; /* Черный цвет фона (задан в виде кода) */
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    padding-top: 2%;
+    font-size: large;
+    color: lightgray;
+}
+aside a {
+    color: white;
+}
+aside a:hover {
+    color: white;
+    cursor: pointer;
+    color: lightblue;
+}
+input {
+    border: 2px solid darkgrey;
+    padding: 5px;
+}
+input:hover {
+    border: 2px solid gray;
+}
+input:focus {
+    border: 2px solid black;
+    font-size: +1em;
+}
+
+#index-header {
+    color: #373a2a;
+}
+.video-container {
+    display: inline-block;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+.navbar {
+    color: darkgray;
+    padding-left: 15%;
+}
+
+
+/* для списька */
+#Food {
+    color: orange;
+}
+
+#Household {
+    color: green;
+}
+
+#Vet {
+    color: lightblue;
+}
+
+.not-bought {
+    background: red;
+    color: white;
+}
+
+#Service {
+    color: darkblue;
+    font: +1 bold;
+}
+
+a[href="#Food"] {
+    background: orange;
+}
+a[href*="ouse"] {
+    background: green;
+}
+
+ul:hover {
+    background: orange;
+}
+
+a:hover {
+    background: green;
+}
+
+li:nth-child(3n+1) {
+    background: purple;
+}
