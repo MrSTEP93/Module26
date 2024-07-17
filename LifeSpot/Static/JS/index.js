@@ -12,13 +12,19 @@
 function FilterContent()
 {
     console.log('Func start!');
-    let userInput = document.getElementsByTagName('input')[0].value;
+    let userInput = document.getElementsByTagName('input')[0].value.toLowerCase();
     let videoCont = document.getElementsByClassName('video-container');
-    for (let i = 0; i <= videoCont.length; i++) {
+    for (let i = 0; i < videoCont.length; i++) {
         //console.log(videoCont[i]);
         let children = videoCont[i];
-        let videoDesc = children.getElementsByTagName('h3')[0];
-        console.log(videoDesc.innerText);
+        let videoDesc = children.getElementsByTagName('h3')[0].innerText.toLowerCase();
+        console.log(videoDesc + ' includes ' + userInput + '??');
+        if (videoDesc.includes(userInput)) {
+            console.log('yes');
+            videoCont[i].style.display = 'inline-block';
+        } else {
+            videoCont[i].style.display = 'none';
+        }
     }
     console.log('Func end.');
 
