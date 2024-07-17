@@ -11,12 +11,22 @@
 
 function FilterContent()
 {
-    console.log('gde vyvod, allo??');
-
-
-    /*
+    console.log('Func start!');
     let userInput = document.getElementsByTagName('input')[0].value;
     let videoCont = document.getElementsByClassName('video-container');
+    for (let i = 0; i <= videoCont.length; i++) {
+        //console.log(videoCont[i]);
+        let children = videoCont[i];
+        let videoDesc = children.getElementsByTagName('h3')[0];
+        console.log(videoDesc.innerText);
+    }
+    console.log('Func end.');
+
+    /*
+    videoCont.forEach(function(item, index, array) {
+        console.log('div here');
+        //;
+    });
     */
 }
 /*
