@@ -42,12 +42,6 @@ function FilterContent()
     }
     console.log('Func end.');
 
-    /*
-    videoCont.forEach(function(item, index, array) {
-        console.log('div here');
-        //;
-    });
-    */
 }
 /*
 let firstName = 'Ivan';
