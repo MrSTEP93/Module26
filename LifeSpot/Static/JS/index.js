@@ -1,20 +1,23 @@
-﻿function handleSession() {
-    let sess = new Map();
-    sess.set('userAgent', window.navigator.userAgent);
+﻿
+let session = new Map();
+
+function handleSession() {
+    session.set('creationDate', Date().toLocaleString());
+    session.set('userAgent', window.navigator.userAgent);
     let userName = prompt('What is your name?');
-    sess.set('userName', userName)
+    session.set('userName', userName)
+}
+
+function CheckAge() {
     let age = prompt("Пожалуйста, введите ваш возраст:");
-    sess.set('age', age);
-    let creationDate = Date().toLocaleString();
-    sess.set('creationDate', creationDate);
     if (age >= 18) {
-        alert("Приветствуем на LifeSpot! " + creationDate);
+        session.set('age', age);
+        alert("Приветствуем на LifeSpot! " + Date().toLocaleString());
     }
     else {
         alert("Наши трансляции не предназначены для лиц моложе 18 лет. Вы будете перенаправлены на google.com");
         window.location.href = "http://www.google.com"
     }
-    return sess;
 }
 
 function FilterContent()
@@ -41,7 +44,7 @@ let inputParsefunction = function GetUserInput() {
     return document.getElementsByTagName('input')[0].value.toLowerCase()
 }
 
-var sessionLog = function (session) {
+var sessionLog = function() {
     for (let el of session) {
         console.log(el);
     }
