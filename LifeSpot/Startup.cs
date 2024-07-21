@@ -53,6 +53,16 @@
                         await context.Response.WriteAsync(html.ToString());
                     });
 
+                    endpoints.MapGet("/about", async context =>
+                    {
+                        var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "about.html");
+                        var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
+                            .Replace("<!--SIDEBAR-->", sideBarHtml)
+                            .Replace("<!--FOOTER-->", footerHtml);
+
+                        await context.Response.WriteAsync(html.ToString());
+                    });
+
                     endpoints.MapGet("/Static/CSS/index.css", async context =>
                     {
                         var cssPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "CSS", "index.css");
@@ -70,6 +80,13 @@
                     endpoints.MapGet("/Static/JS/counter.js", async context =>
                     {
                         var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "JS", "counter.js");
+                        var js = await File.ReadAllTextAsync(jsPath);
+                        await context.Response.WriteAsync(js);
+                    });
+
+                    endpoints.MapGet("/Static/JS/feedback.js", async context =>
+                    {
+                        var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "JS", "feedback.js");
                         var js = await File.ReadAllTextAsync(jsPath);
                         await context.Response.WriteAsync(js);
                     });

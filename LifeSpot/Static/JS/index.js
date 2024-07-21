@@ -40,6 +40,13 @@ function FilterContent()
     console.log('Func end.');
 }
 
+function InviteToTgChannel()
+{
+    setTimeout(() =>
+        alert("Нравится LifeSpot? " + '\n' + "Подпишитесь на наш Telegram-канал: @lifespot777"),
+        10000);
+}
+
 let inputParsefunction = function GetUserInput() {
     return document.getElementsByTagName('input')[0].value.toLowerCase()
 }

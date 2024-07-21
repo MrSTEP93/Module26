@@ -66,6 +66,27 @@ input:focus {
     padding-left: 15%;
 }
 
+.review-container, .review-button {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+.review-name {
+    display: inline-block;
+    font: bold;
+}
+.review-date {
+    display: inline-block;
+    font: italic;
+    font-size: smaller;
+    color: gray;
+}
+.review-content {
+    display: inline-block;
+    font-size: larger;
+}
+
 
 /* для списька */
 #Food {
