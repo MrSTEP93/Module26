@@ -12,22 +12,20 @@
     }
 
     review["date"] = new Date().toLocaleString();
-    console.log('Data collected:');
-    console.log('\t' + review["userName"]);
-    console.log('\t' + review["comment"]);
-    console.log('\t' + review["date"]);
+    //console.log('Data collected:');
+    //console.log('\t' + review["userName"]);
+    //console.log('\t' + review["comment"]);
+    //console.log('\t' + review["date"]);
     PrintComment(review);
 }
 
 const PrintComment = (review) => {
-    console.log('Data received:');
-    console.log('\t' + review["userName"]);
-    console.log('\t' + review["comment"]);
-    console.log('\t' + review["date"]);
+    //console.log('Data received:');
+    //console.log('\t' + review["userName"]);
+    //console.log('\t' + review["comment"]);
+    //console.log('\t' + review["date"]);
 
-    let fullComment = '<p class="review-name">' + review["userName"] + '</p> ' +
-        + '<p class="review-date">' + review["date"] + '</p>' +
-        + '<div class="review-content">' + review["comment"] + '</div>';
-
-    document.getElementsByClassName('reviews')[0].innerHTML += fullComment;
+    document.getElementsByClassName('reviews')[0].innerHTML += '<p class="review-name"> <b>' + review["userName"] + '</b> </p> ' +
+        '<p class="review-date"> ' + review["date"] + ' </p>' +
+        '<div class="review-content"> ' + review["comment"] + '</div><br />';
 };

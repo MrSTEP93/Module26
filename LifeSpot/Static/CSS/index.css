@@ -83,7 +83,7 @@ input:focus {
     color: gray;
 }
 .review-content {
-    display: inline-block;
+    display: block;
     font-size: larger;
 }
 
