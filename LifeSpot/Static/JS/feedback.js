@@ -1,22 +1,29 @@
 ﻿function GetReview() {
-    let review = {};
-
-    review["userName"] = prompt("What is your name? ");
-    if (review["userName"] == null) {
-        return
+    let comment = {};
+    var userName = window.sessionStorage.getItem('userName');
+    if (userName == null) {
+        comment["userName"] = prompt("What is your name? ");
+    } else {
+        comment["userName"] = userName;
     }
 
-    review["comment"] = prompt("Type your comment: ");
-    if (review["comment"] == null) {
+    comment["text"] = prompt(comment["userName"] + ", write your comment: ");
+    if (comment["text"] == null) {
         return
     }
+    comment["date"] = new Date().toLocaleString();
+    if (confirm("Do you want people to rate your comment?")) {
+        let review = Object.create(comment);
+        review.rate = 0;
+        PrintComment(review);
+    } else {
+        PrintComment(comment);
+    }
 
-    review["date"] = new Date().toLocaleString();
     //console.log('Data collected:');
     //console.log('\t' + review["userName"]);
     //console.log('\t' + review["comment"]);
     //console.log('\t' + review["date"]);
-    PrintComment(review);
 }
 
 const PrintComment = (review) => {
@@ -25,7 +32,11 @@ const PrintComment = (review) => {
     //console.log('\t' + review["comment"]);
     //console.log('\t' + review["date"]);
 
-    document.getElementsByClassName('reviews')[0].innerHTML += '<p class="review-name"> <b>' + review["userName"] + '</b> </p> ' +
+     let newReview = '<p class="review-name"> <b>' + review["userName"] + '</b> </p> ' +
         '<p class="review-date"> ' + review["date"] + ' </p>' +
-        '<div class="review-content"> ' + review["comment"] + '</div><br />';
+        '<div class="review-content"> ' + review["text"] + '</div><br />';
+    if (review.hasOwnProperty('rate')) {
+        newReview += '<div class="review-rating"> <a>-</a> <b>' + review["rate"] + '</b> <a>+</a> </div> <br />';
+    }
+    document.getElementsByClassName('reviews')[0].innerHTML += newReview;
 };

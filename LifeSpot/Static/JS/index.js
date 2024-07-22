@@ -2,16 +2,20 @@
 let session = new Map();
 
 function handleSession() {
-    session.set('creationDate', Date().toLocaleString());
-    session.set('userAgent', window.navigator.userAgent);
-    let userName = prompt('What is your name?');
-    session.set('userName', userName)
+    var userName = window.sessionStorage.getItem('userName');
+    if (userName == null) {
+        window.sessionStorage.setItem('creationDate', Date().toLocaleString());
+        window.sessionStorage.setItem('userAgent', window.navigator.userAgent);
+        let userName = prompt('What is your name?');
+        window.sessionStorage.setItem('userName', userName)
+        CheckAge();
+    }
 }
 
 function CheckAge() {
     let age = prompt("Пожалуйста, введите ваш возраст:");
     if (age >= 18) {
-        session.set('age', age);
+        window.sessionStorage.setItem('userAge', age);
         alert("Приветствуем на LifeSpot! " + Date().toLocaleString());
     }
     else {
@@ -52,9 +56,11 @@ let inputParsefunction = function GetUserInput() {
 }
 
 var sessionLog = function() {
-    for (let el of session) {
-        console.log(el);
-    }
+    
+    console.log(window.sessionStorage.getItem('userName'));
+    console.log(window.sessionStorage.getItem('userAge'));
+    console.log(window.sessionStorage.getItem('userAgent'));
+    console.log(window.sessionStorage.getItem('creationDate'));
 }
 /*
 let firstName = 'Ivan';
