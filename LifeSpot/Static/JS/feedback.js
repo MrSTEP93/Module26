@@ -1,29 +1,36 @@
-﻿function GetReview() {
-    let comment = {};
-    var userName = window.sessionStorage.getItem('userName');
-    if (userName == null) {
-        comment["userName"] = prompt("What is your name? ");
-    } else {
-        comment["userName"] = userName;
+﻿
+function Comment() {
+    this.isEmpty = false;
+    this.userName = window.sessionStorage.getItem('userName');
+    if ((this.userName == 'null')) {
+        this.userName = prompt("What is your name? ");
+        if (this.userName == null) { 
+            this.isEmpty = true;
+            return
+        }
     }
 
-    comment["text"] = prompt(comment["userName"] + ", write your comment: ");
-    if (comment["text"] == null) {
+    this.text = prompt(this.userName + ", write your comment: ");
+    if (this.text == null) {
+        this.isEmpty = true;
         return
     }
-    comment["date"] = new Date().toLocaleString();
-    if (confirm("Do you want people to rate your comment?")) {
-        let review = Object.create(comment);
-        review.rate = 0;
-        PrintComment(review);
-    } else {
-        PrintComment(comment);
-    }
 
-    //console.log('Data collected:');
-    //console.log('\t' + review["userName"]);
-    //console.log('\t' + review["comment"]);
-    //console.log('\t' + review["date"]);
+    this.date = new Date().toLocaleString();
+}
+
+function getReview() {
+    let comment = new Comment();
+
+    if (!comment.isEmpty) {
+        if (confirm("Do you want people to rate your comment?")) {
+            let review = Object.create(comment);
+            review.rate = 0;
+            PrintComment(review);
+        } else {
+            PrintComment(comment);
+        }
+    }
 }
 
 const PrintComment = (review) => {
