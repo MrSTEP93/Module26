@@ -87,6 +87,18 @@ input:focus {
     font-size: larger;
 }
 
+.arrow {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+#slideshow-container {
+    width: 100%;
+}
+#slideshow-container img {
+    cursor: grab;
+}
+
 
 /* для списька */
 #Food {

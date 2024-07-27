@@ -6,21 +6,25 @@
     <title>LifeSpot - о проекте</title>
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" defer src="../Static/JS/feedback.js"></script>
+    <script type="text/javascript" defer src="../Static/JS/slideshow.js"></script>
 </head>
 
-<body>
+<body onload="readslideshow()">
     <header id="header-index" align="center">
         <h1>LifeSpot - о проекте</h1>
         <p>Кто, поком и зачему?</p>
     </header>
 
     <!--SIDEBAR-->
-
     <h3>
         Оказывается, мы тут вообще JS-ками балуемся
     </h3>
     А попутно показываем вам трансляции из больших городов!!<br />
 
+    <h4 class="slideshow-title">Например:</h4>
+    <!--SLIDESHOW-->
+
+    <br />
     <div class="reviews">
         <div class="review-button">
             <button onClick="getReview()">Оставить отзыв/комментарий</button>
